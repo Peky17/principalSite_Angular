@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from "../../userServices/users.service";
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,16 @@ export class LoginComponent {
   email: string;
   password: string;
 
-  constructor() {
-    this.email = "";
-    this.password = "";
-  }
+   constructor(public userService: UsersService) {
+     this.email = "";
+     this.password = "";
+   }
 
   login() {
-    console.log(this.email);
-    console.log(this.password);
+    const user = {email: this.email, password: this.password};
+    this.userService.login(user).subscribe( data => {
+      // Informacion del usuario a loguear enviada
+      console.log(data);
+    });
   }
 }

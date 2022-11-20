@@ -1,4 +1,6 @@
 import { NgModule } from "@angular/core";
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Routes, RouterModule} from "@angular/router";
 import { HabitacionesComponent } from "./vistas/habitaciones/habitaciones.component";
 import { LoginComponent } from "./vistas/login/login.component";
