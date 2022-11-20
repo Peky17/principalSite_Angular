@@ -19,29 +19,29 @@
         <div class="container">
             <h1>¡Ingresa los datos <br> para crear tu cuenta!</h1><br>
             <div class="map-content-9 mb-5 ">
-                <form action="" onSubmit="return ConfirmarPassword()" method="POST">
+                <form method="POST">
                     <div class="twice-two">
-                        <input id="nombre" class="form-control" type="text" placeholder="Nombre"
-                            onkeypress="return Validacionletras(event)" name="TxtNombre" required>
-                        <input id="apellido" class="form-control" type="text" placeholder="Apellido"
-                            onkeypress="return Validacionletras(event)" name="TxtApellido" required>
-                        <input id="telefono" class="form-control" type="tel" placeholder="Telefono" minlength="5" maxlength="15"
+                        <input id="nombre" [(ngModel)]="nombre" class="form-control" type="text" placeholder="Nombre"
+                            name="TxtNombre" required>
+                        <input id="apellido" [(ngModel)]="apellidos" class="form-control" type="text" placeholder="Apellido"
+                            name="TxtApellido" required>
+                        <input id="telefono" [(ngModel)]="telefono" class="form-control" type="tel" placeholder="Telefono" minlength="5" maxlength="15"
                             name="TxtTelefono" required>
                     </div>
-                    <input id="email" class="form-control" type="email" placeholder="Correo"
-                        onkeypress="if (event.keyCode == 32) event.returnValue = false;" name="TxtMail" required><br>
-                    <input id="direccion" class="form-control" type="text" placeholder="Direccion" maxlength="100"
+                    <input id="email" class="form-control" [(ngModel)]="email" type="email" placeholder="Correo"
+                        name="TxtMail" required><br>
+                    <input id="direccion" [(ngModel)]="direccion" class="form-control" type="text" placeholder="Direccion" maxlength="100"
                         name="TxtDireccion" required><br>
-                    <input id="pass1" class="form-control" type="password"
+                    <input id="pass1" [(ngModel)]="password" class="form-control" type="password"
                         pattern="(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*"
                         title="Debe tener al menos una mayúscula, una minúscula y un dígito" minlength="6"
                         maxlength="25" placeholder="Password" name="TxtPassword" required=""><br>
-                    <input id="pass2" class="form-control" type="password"
+                    <input id="pass2" [(ngModel)]="confirmarPassword" class="form-control" type="password"
                         pattern="(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*"
                         title="Debe tener al menos una mayúscula, una minúscula y un dígito" minlength="6"
                         maxlength="25" placeholder="Confirmar password" name="TxtPassword" required=""><br>
                     <div class="text-right">
-                        <button id="btnEnviar" type="submit" name="btnEnviar" class="btn btn-contact">Crear
+                        <button (click)="registrar()" type="submit" name="btnEnviar" class="btn btn-contact">Crear
                             cuenta</button>
                     </div>
                 </form>
@@ -53,24 +53,3 @@
 <section>
     <br><br><br><br>
 </section>
-<!-- Validacion de contraseña y letras en los inputs -->
-<script>
-    function ConfirmarPassword() {
-        var Password1 = document.getElementById("pass1").value;
-        var Password2 = document.getElementById("pass2").value;
-        if (Password1 != Password2) {
-            swal("Usuario no registrado", "Las contraseñas deben ser iguales", "error");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    function Validacionletras(e) {
-        letras = (document.all) ? e.keyCode : e.which;
-        if (letras == 8) return true;
-        patron = /[A-Za-z\s]/;
-        te = String.fromCharCode(letras);
-        return patron.test(te);
-    }
-</script>
