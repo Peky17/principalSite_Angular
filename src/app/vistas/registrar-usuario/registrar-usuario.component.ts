@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
+import { UsersService } from "../../userServices/users.service";
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -15,7 +17,7 @@ export class RegistrarUsuarioComponent {
   password: string;
   confirmarPassword: string;
 
-  constructor() {
+  constructor(public userService: UsersService) {
     this.nombre = "";
     this.apellidos = "";
     this.telefono = "";
@@ -26,13 +28,16 @@ export class RegistrarUsuarioComponent {
   }
 
   registrar(){
-    console.log(this.nombre);
-    console.log(this.apellidos);
-    console.log(this.telefono);
-    console.log(this.email);
-    console.log(this.direccion);
-    console.log(this.password);
-    console.log(this.confirmarPassword);
+    if(this.password === this.confirmarPassword){
+       const user = { nombre:this.nombre, apellidos:this.apellidos, telefono:this.telefono,
+        email:this.email, direccion:this.direccion, password:this.password };
+        // Mandamos el objeto a el servicio para hacer la peticion
+        this.userService.register(user).subscribe(data => {
+        console.log(data);
+    });
+    } else {
+      Swal.fire('OPERACION DENEGADA', 'Las contraseñas no coinciden!', 'info');
+    }
   }
 
 }
