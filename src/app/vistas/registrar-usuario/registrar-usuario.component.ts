@@ -33,8 +33,11 @@ export class RegistrarUsuarioComponent {
         email:this.email, direccion:this.direccion, password:this.password };
         // Mandamos el objeto a el servicio para hacer la peticion
         this.userService.register(user).subscribe(data => {
-        console.log(data);
-    });
+            console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
     } else {
       Swal.fire('OPERACION DENEGADA', 'Las contraseñas no coinciden!', 'info');
     }

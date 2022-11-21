@@ -26,7 +26,12 @@ export class LoginComponent {
           this.userService.login(user).subscribe( data => {
           // Informacion del usuario a loguear enviada
           console.log(data);
+          // Guardar el token en una cookie
           this.userService.setToken(data.token);
+        },
+        error => {
+          console.log(error);
+          Swal.fire('ACCESO DENEGADO', 'No se pudo acceder a este usuario', 'info');
         });
       } else {
         Swal.fire('OPERACION DENEGADA', 'Porfavor complete el formulario!', 'info');
