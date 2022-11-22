@@ -11,7 +11,7 @@
                                     <h5>Riu<br>
                                         Mazatlán</h5>
                                     <p>Encontraste el mejor hotel todo incluido en Mazatlán para tu viaje</p>
-                                    <a class="btn btn-theme2 mt-lg-5 mt-4" href="habitaciones">Ver habitaciones 
+                                    <a class="btn btn-theme2 mt-lg-5 mt-4" routerLink="habitaciones">Ver habitaciones 
                                         disponibles</a>
                                 </div>
                             </div>
@@ -66,31 +66,22 @@
         <div class="container">
             <div class="booking-form-content">
                 <div class="main-titles-head ">
-                    <h3 class="header-name">¡Obtenga Las Mejores Vacaciones!
+                    <h3 class="header-name">¡Reciba correos electronicos con nuestras ofertas!
                     </h3>
                 </div>
-                <form action="search-results.html" method="post" class="booking-form">
+                <form class="booking-form">
                     <div class="row book-form">
                         <div class="form-input col-md-4 mt-3">
                             <label>Nombre</label>
                             <input type="text" name="" placeholder="Nombre" required="">
-
                         </div>
                         <div class="form-input col-md-4 mt-3">
-
-                            <label>Duracion</label>
-                            <select name="duration" class="selectpicker">
-                                <option value="">Dia</option>
-                                <option value="1">1 Day Tour</option>
-                                <option value="2">2-4 Days Tour</option>
-                                <option value="5">5-7 Days Tour</option>
-                                <option value="7">7+ Days Tour</option>
-                            </select>
-
+                            <label>Correo</label>
+                            <input type="email" name="email" placeholder="email" required="">
                         </div>
                         <div class="form-input col-md-4 mt-3">
-                            <label>Fecha</label>
-                            <input type="date" name="" placeholder="Fecha" required="">
+                            <label>Ciudad de la que nos visita</label>
+                            <input type="text" name="ciudad" placeholder="Ciudad" required="">
                         </div>
                         <div class="bottom-btn col-md-4 mt-3">
                             <label>Enviar</label>
