@@ -15,6 +15,7 @@ import { HabitacionesComponent } from './vistas/habitaciones/habitaciones.compon
 import { LoginComponent } from './vistas/login/login.component';
 import { RegistrarUsuarioComponent } from './vistas/registrar-usuario/registrar-usuario.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { ChildsModule } from './vistas/dashboard/childs.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DashboardComponent } from './vistas/dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChildsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

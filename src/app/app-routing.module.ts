@@ -15,8 +15,7 @@ const app_routes: Routes= [
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'registrar', component: RegistrarUsuarioComponent },
   { path: 'ingresar', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: '**', pathMatch: 'full', redirectTo: '' }
+  { path: 'dashboard', pathMatch: 'full', redirectTo: 'dashboard/reservacion' }
 ];
 
 
