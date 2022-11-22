@@ -9,7 +9,6 @@ import { CookieService } from "ngx-cookie-service";
 
 export class UsersService {
   constructor(private http: HttpClient, private cookies: CookieService) {
-
   }
 
   // Metodo de logueo
@@ -28,5 +27,8 @@ export class UsersService {
   }
   getToken() {
     return this.cookies.get("token");
+  }
+  deleteToken(){
+    this.cookies.delete("token");
   }
 }

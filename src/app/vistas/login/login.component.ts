@@ -16,8 +16,13 @@ export class LoginComponent {
   tituloAlerta: string='';
 
    constructor(public userService: UsersService, public router: Router) {
-     this.email = "";
-     this.password = "";
+    // Inicializamos las variables 
+    this.email = "";
+    this.password = "";
+    // Verificar si ya hay un usuario logueado mediante la cookie
+    if(this.userService.getToken() != ''){
+      this.router.navigateByUrl('dashboard');
+    }
    }
 
   login() {
