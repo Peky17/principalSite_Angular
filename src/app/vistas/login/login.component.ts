@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from "../../userServices/users.service";
 import Swal from 'sweetalert2';
 
@@ -14,7 +15,7 @@ export class LoginComponent {
   password: string;
   tituloAlerta: string='';
 
-   constructor(public userService: UsersService) {
+   constructor(public userService: UsersService, public router: Router) {
      this.email = "";
      this.password = "";
    }
@@ -28,6 +29,8 @@ export class LoginComponent {
           console.log(data);
           // Guardar el token en una cookie
           this.userService.setToken(data.token);
+          // Redireccionamos al dashboard
+          this.router.navigateByUrl('/');
         },
         error => {
           console.log(error);
