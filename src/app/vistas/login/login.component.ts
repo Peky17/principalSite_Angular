@@ -30,7 +30,7 @@ export class LoginComponent {
           // Guardar el token en una cookie
           this.userService.setToken(data.token);
           // Redireccionamos al dashboard
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('dashboard');
         },
         error => {
           console.log(error);

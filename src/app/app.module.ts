@@ -14,6 +14,7 @@ import { VistaContactoComponent } from './vistas/vista-contacto/vista-contacto.c
 import { HabitacionesComponent } from './vistas/habitaciones/habitaciones.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { RegistrarUsuarioComponent } from './vistas/registrar-usuario/registrar-usuario.component';
+import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegistrarUsuarioComponent } from './vistas/registrar-usuario/registrar-
     HabitacionesComponent,
     LoginComponent,
     RegistrarUsuarioComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

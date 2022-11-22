@@ -6,6 +6,7 @@ import { RegistrarUsuarioComponent } from "./vistas/registrar-usuario/registrar-
 import { VistaAboutComponent } from "./vistas/vista-about/vista-about.component";
 import { VistaContactoComponent } from "./vistas/vista-contacto/vista-contacto.component";
 import { VistaHomeComponent } from "./vistas/vista-home/vista-home.component";
+import { DashboardComponent } from "./vistas/dashboard/dashboard.component";
 
 const app_routes: Routes= [
   { path: '', component: VistaHomeComponent },
@@ -14,6 +15,7 @@ const app_routes: Routes= [
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'registrar', component: RegistrarUsuarioComponent },
   { path: 'ingresar', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
