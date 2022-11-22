@@ -25,7 +25,7 @@ import { RegistrarUsuarioComponent } from './vistas/registrar-usuario/registrar-
     VistaContactoComponent,
     HabitacionesComponent,
     LoginComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
   ],
   imports: [
     BrowserModule,
