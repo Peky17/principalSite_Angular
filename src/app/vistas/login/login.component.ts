@@ -31,7 +31,7 @@ export class LoginComponent {
         },
         error => {
           console.log(error);
-          Swal.fire('ACCESO DENEGADO', 'No se pudo acceder a este usuario', 'info');
+          Swal.fire('ACCESO DENEGADO', 'Datos erroneos o el usuario no existe', 'info');
         });
       } else {
         Swal.fire('OPERACION DENEGADA', 'Porfavor complete el formulario!', 'info');
