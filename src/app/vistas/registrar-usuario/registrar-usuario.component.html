@@ -3,7 +3,7 @@
     <div class="about-inner contact">
         <div class="breadcrumbs-sub">
             <ul class="breadcrumbs-custom-path">
-                <li class="right-side propClone"><a href="?p=home" class="editContent">Inicio <span
+                <li class="right-side propClone"><a href="" class="editContent">Inicio <span
                             class="fa fa-angle-right" aria-hidden="true"></span></a>
                     <p>
                 </li>
@@ -21,17 +21,11 @@
             <div class="map-content-9 mb-5 ">
                 <form>
                     <div class="twice-two">
-                        <input id="nombre" [(ngModel)]="nombre" class="form-control" type="text" placeholder="Nombre"
+                        <input id="nombre" [(ngModel)]="nombre" class="form-control" type="text" placeholder="Nombre de usuario"
                             name="TxtNombre" required>
-                        <input id="apellido" [(ngModel)]="apellidos" class="form-control" type="text" placeholder="Apellido"
-                            name="TxtApellido" required>
-                        <input id="telefono" [(ngModel)]="telefono" class="form-control" type="tel" placeholder="Telefono" minlength="5" maxlength="15"
-                            name="TxtTelefono" required>
                     </div>
                     <input id="email" class="form-control" [(ngModel)]="email" type="email" placeholder="Correo"
                         name="TxtMail" required><br>
-                    <input id="direccion" [(ngModel)]="direccion" class="form-control" type="text" placeholder="Direccion" maxlength="100"
-                        name="TxtDireccion" required><br>
                     <input id="pass1" [(ngModel)]="password" class="form-control" type="password"
                         pattern="(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*"
                         title="Debe tener al menos una mayúscula, una minúscula y un dígito" minlength="6"

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/userServices/users.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,10 +19,29 @@ export class DashboardComponent {
     }
   }
 
-  // Metodo para cerrar sesion
+   // Metodo para cerrar sesion
   logout(){
-      this.userService.deleteToken();
-      console.log("Ha cerrado sesion");
-      this.router.navigateByUrl('ingresar');
+      Swal.fire({
+        title: '¿Desea salir de la aplicacion?',
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: 'Salir',
+        denyButtonText: 'No salir',
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Hasta pronto!', '', 'success');
+          // Cerramos sesion en la api rest
+          this.userService.logout(this.userService.getToken);
+          // Eliminamos los datos de las cookies
+          this.userService.deleteToken();
+          this.userService.deleteUsername();
+          this.userService.deleteEmail();
+          console.log("Ha cerrado sesion");
+          this.router.navigateByUrl('ingresar');
+        } else if (result.isDenied) {
+          Swal.fire('Sesion no cerrada', '', 'info');
+        }
+      })
   }
 }

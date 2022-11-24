@@ -10,33 +10,28 @@ import { UsersService } from "../../userServices/users.service";
 
 export class RegistrarUsuarioComponent {
   nombre: string;
-  apellidos: string;
-  telefono: string;
   email: string;
-  direccion: string;
   password: string;
   confirmarPassword: string;
 
   constructor(public userService: UsersService) {
     this.nombre = "";
-    this.apellidos = "";
-    this.telefono = "";
     this.email = "";
-    this.direccion = "";
     this.password = "";
     this.confirmarPassword = "";
   }
 
   registrar(){
     if(this.password === this.confirmarPassword){
-       const user = { nombre:this.nombre, apellidos:this.apellidos, telefono:this.telefono,
-        email:this.email, direccion:this.direccion, password:this.password };
+       const user = { username:this.nombre, email: this.email, password: this.password, role: ["user"] };
         // Mandamos el objeto a el servicio para hacer la peticion
         this.userService.register(user).subscribe(data => {
             console.log(data);
+            Swal.fire('AVISO', data.message, 'info');
         },
         error => {
           console.log(error);
+          Swal.fire('OPERACION DENEGADA', 'Las contraseñas no coinciden!', 'info');
         });
     } else {
       Swal.fire('OPERACION DENEGADA', 'Las contraseñas no coinciden!', 'info');
