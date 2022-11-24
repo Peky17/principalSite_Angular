@@ -11,13 +11,13 @@ import Swal from 'sweetalert2';
 
 export class LoginComponent {
 
-  email: string;
+  username: string;
   password: string;
   tituloAlerta: string='';
 
    constructor(public userService: UsersService, public router: Router) {
     // Inicializamos las variables 
-    this.email = "";
+    this.username = "";
     this.password = "";
     // Verificar si ya hay un usuario logueado mediante la cookie
     if(this.userService.getToken() != ''){
@@ -26,9 +26,9 @@ export class LoginComponent {
    }
 
   login() {
-    if(this.email != '' && this.password != ''){
-      if(this.email != '' || this.password != ''){
-        const user = {email: this.email, password: this.password};
+    if(this.username != '' && this.password != ''){
+      if(this.username != '' || this.password != ''){
+        const user = {username: this.username, password: this.password};
           this.userService.login(user).subscribe( data => {
           // Informacion del usuario a loguear enviada
           console.log(data);
